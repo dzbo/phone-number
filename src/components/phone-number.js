@@ -1,8 +1,6 @@
-import "./App.css";
 import { useEffect } from "react";
-import PhoneNumber from "./components/phone-number";
 
-function App() {
+function PhoneNumber() {
   useEffect(() => {
     const phoneNumberRegExp = /[0-9/]+/;
     function onKeyPress(event) {
@@ -31,12 +29,28 @@ function App() {
   }, []);
 
   return (
-    <div className="container mt-5">
-      <form className="w-50 phone-form">
-        <PhoneNumber />
-      </form>
-    </div>
+    <>
+      <label className="form-label">Phone number</label>
+      <div className="input-group mb-3">
+        <input
+          type="text"
+          className="form-control phone-code"
+          placeholder="+49"
+          id="phone-code"
+          aria-label="Enter phone code"
+          required
+        />
+        <input
+          type="text"
+          className="form-control phone-number"
+          placeholder="123456789"
+          id="phone-number"
+          aria-label="Enter phone number"
+          required
+        />
+      </div>
+    </>
   );
 }
 
-export default App;
+export default PhoneNumber;
